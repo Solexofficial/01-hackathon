@@ -17,6 +17,30 @@ export class ShapeModule extends Module {
 				height: "100",
 				background: "red",
 			},
+			{
+				shape: "Circle",
+				width: 100,
+				height: 100,
+				borderRadius: "50px",
+			},
+			{
+				shape: "Oval",
+				width: 200,
+				height: 100,
+				borderRadius: "100px / 50px",
+			},
+			{
+				shape: "triangle",
+				width: 200,
+				height: 200,
+				clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+			},
+			{
+				shape: "hexagon",
+				width: 250,
+				height: 250,
+				clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+			},
 		];
 	}
 
@@ -26,7 +50,7 @@ export class ShapeModule extends Module {
 
 	createShape(shape) {
 		const ms = random(2, 7);
-		const { shape: figure, width, height, background } = shape;
+		const { width, height, borderRadius, clipPath } = shape;
 		const $shape = document.createElement("div");
 		const $timer = document.createElement("span");
 		$shape.style.width = `${width}px`;
@@ -38,6 +62,12 @@ export class ShapeModule extends Module {
 		$shape.style.position = "absolute";
 		$shape.style.right = `${random(0, window.innerWidth - width)}px`;
 		$shape.style.top = `${random(height, window.innerHeight - height)}px`;
+		if (borderRadius) {
+			$shape.style.borderRadius = borderRadius;
+		}
+		if (clipPath) {
+			$shape.style.clipPath = clipPath;
+		}
 
 		$timer.textContent = ms;
 		$timer.style.color = "#fff";
