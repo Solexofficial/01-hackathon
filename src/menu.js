@@ -28,9 +28,8 @@ export class ContextMenu extends Menu {
 		const $menuItems = document.querySelectorAll(".menu-item");
 		$menuItems.forEach(item =>
 			item.addEventListener("click", e => {
-				const data = e.target.dataset.type;
 				for (const module in this.#modules) {
-					if (this.#modules[module].type === data) {
+					if (this.#modules[module].type === e.target.dataset.type) {
 						this.#modules[module].trigger();
 						this.close();
 					}
