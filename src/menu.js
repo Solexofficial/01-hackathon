@@ -2,6 +2,7 @@ import { Menu } from "./core/menu";
 import { BackgroundModule } from "./modules/background.module";
 import { ClicksModule } from "./modules/clicks.module";
 import { ShapeModule } from "./modules/shape.module";
+import { TimerModule } from "./modules/timer.module";
 
 export class ContextMenu extends Menu {
 	#modules;
@@ -11,6 +12,7 @@ export class ContextMenu extends Menu {
 			background: new BackgroundModule("bg", "bg change"),
 			clicks: new ClicksModule("clicker", "click counter"),
 			shape: new ShapeModule("shape", "create shape"),
+			timer: new TimerModule("timer", "create timer"),
 		};
 
 		for (const module in this.#modules) {
