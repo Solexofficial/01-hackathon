@@ -14,7 +14,9 @@ export class ContextMenu extends Menu {
 		};
 
 		for (const module in this.#modules) {
-			this.add(this.#modules[module]);
+			if (module) {
+				this.add(this.#modules[module]);
+			}
 		}
 
 		window.addEventListener("contextmenu", e => {
