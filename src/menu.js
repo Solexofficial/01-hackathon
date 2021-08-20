@@ -7,20 +7,22 @@ export class ContextMenu extends Menu {
 			e.preventDefault();
 			const { pageX, pageY } = e;
 			console.log(pageX, pageY);
-			this.open();
+			this.open(pageX, pageY);
 		});
 	}
 
-	open() {
-		const $menuItems = document.querySelectorAll(".menu-item");
-		console.log($menuItems);
-		console.log(this.el);
+	open(posX, posY) {
 		this.el.classList.add("open");
-		$menuItems.forEach(item =>
-			item.addEventListener("click", e => {
-				console.log(e.target.dataset.type);
-			})
-		);
+		this.el.style.left = `${posX}px`;
+		this.el.style.top = `${posY}px`;
+		// const $menuItems = document.querySelectorAll(".menu-item");
+		// console.log($menuItems);
+		// console.log(this.el);
+		// $menuItems.forEach(item =>
+		// 	item.addEventListener("click", e => {
+		// 		console.log(e.target.dataset.type);
+		// 	})
+		// );
 	}
 
 	close() {
