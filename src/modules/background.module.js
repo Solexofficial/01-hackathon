@@ -16,4 +16,4 @@ export class BackgroundModule extends Module {
         let c = random(0, 255);
         document.body.style.backgroundColor = `rgb(${a}, ${b}, ${c})`;
     }
-}
+
