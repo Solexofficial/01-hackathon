@@ -4,17 +4,19 @@ import { ClicksModule } from "./modules/clicks.module";
 import { ShapeModule } from "./modules/shape.module";
 import { TimerModule } from "./modules/timer.module";
 import { AutoWriteText } from "./modules/auto-write-text.module";
+import { HearthRain } from "./modules/hearth-rain.module";
 
 export class ContextMenu extends Menu {
 	#modules;
 	constructor(selector) {
 		super(selector);
 		this.#modules = {
-			background: new BackgroundModule("bg", "bg change"),
-			clicks: new ClicksModule("clicker", "click counter"),
-			shape: new ShapeModule("shape", "create shape"),
-			timer: new TimerModule("timer", "create timer"),
+			background: new BackgroundModule("bg", "Bg change"),
+			clicks: new ClicksModule("clicker", "Click counter"),
+			shape: new ShapeModule("shape", "Create shape"),
+			timer: new TimerModule("timer", "Create timer"),
 			autoWriteText: new AutoWriteText("auto-write-text", "Auto write text"),
+			heartRain: new HearthRain("hearth-rain", "Hearth Rain"),
 		};
 
 		for (const module in this.#modules) {
