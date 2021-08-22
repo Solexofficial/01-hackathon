@@ -10,6 +10,10 @@ export class ClicksModule extends Module {
 
     trigger() {
         this.oneTwoClicks();
+        setTimeout(() => {
+            
+            alert(`Вы совершили одиночных кликов ${this.clicks}, двойных кликов ${this.doubleClicks} за ${setTimeout[1]} секунд`);
+        }, 10000)
     }
 
     oneTwoClicks() {
