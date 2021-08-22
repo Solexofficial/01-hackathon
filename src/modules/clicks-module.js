@@ -25,20 +25,20 @@ export class ClicksModule extends Module {
     oneTwoClicks() {
 
         let click = 0;
-            document.addEventListener('click', () => {
+            document.addEventListener('click', function clk() {
             const result = ++click;
             console.log('one', result);
             if (timeIsOver === true) {
-                break;
+                document.removeEventListener('click', clk);
             }
 });
 
         let doubleclick = 0;
-            document.addEventListener('dblclick', () => {
+            document.addEventListener('dblclick', function dblclk() {
                 const result1 = ++doubleclick;
                 console.log('double', result1);
                 if (timeIsOver === true) {
-                    break;
+                    document.removeEventListener('dblclick', dblclk);
                 }
         }); 
     }
