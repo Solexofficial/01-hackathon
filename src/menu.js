@@ -1,12 +1,12 @@
 import { Menu } from "./core/menu";
 import { BackgroundModule } from "./modules/background.module";
-// import { ClicksModule } from "./modules/clicks.module";
+import { ClicksModule } from "./modules/clicks.module";
 import { ShapeModule } from "./modules/shape.module";
 import { TimerModule } from "./modules/timer.module";
 import { AutoWriteText } from "./modules/auto-write-text.module";
 import { HearthRain } from "./modules/hearth-rain.module";
 import { SoundModule } from "./modules/sound.module";
-import { DaysTillNewYear } from "./modules/days_till_ny.module";
+import { DaysTillNewYearModule } from "./modules/days_till_ny.module";
 
 export class ContextMenu extends Menu {
 	#modules;
@@ -14,13 +14,13 @@ export class ContextMenu extends Menu {
 		super(selector);
 		this.#modules = {
 			background: new BackgroundModule("bg", "Bg change"),
-			// clicks: new ClicksModule("clicker", "Click counter"),
+			clicks: new ClicksModule("clicker", "Click counter"),
 			shape: new ShapeModule("shape", "Create shape"),
 			timer: new TimerModule("timer", "Create timer"),
 			autoWriteText: new AutoWriteText("auto-write-text", "Auto write text"),
 			heartRain: new HearthRain("hearth-rain", "Hearth Rain"),
 			randomSound: new SoundModule("sound", "Random sound"),
-			daysTillNy: new DaysTillNewYear("ny", "Days to New Year"),
+			daysTillNy: new DaysTillNewYearModule("ny", "Days to New Year"),
 		};
 
 		for (const module in this.#modules) {
