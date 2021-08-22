@@ -36,12 +36,10 @@ export class ClicksModule extends Module {
 	getClicks() {
 		if (this.timeIsOver) return;
 		this.countClick++;
-		console.log(this.countClick);
 	}
 
 	getDoubleClicks() {
 		if (this.timeIsOver) return;
 		this.countDoubleClick++;
-		console.log(this.countDoubleClick);
 	}
 }
