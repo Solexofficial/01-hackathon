@@ -5,6 +5,7 @@ import { ShapeModule } from "./modules/shape.module";
 import { TimerModule } from "./modules/timer.module";
 import { AutoWriteText } from "./modules/auto-write-text.module";
 import { HearthRain } from "./modules/hearth-rain.module";
+import { SoundModule } from "./modules/sound.module";
 
 export class ContextMenu extends Menu {
 	#modules;
@@ -17,6 +18,7 @@ export class ContextMenu extends Menu {
 			timer: new TimerModule("timer", "Create timer"),
 			autoWriteText: new AutoWriteText("auto-write-text", "Auto write text"),
 			heartRain: new HearthRain("hearth-rain", "Hearth Rain"),
+			randomSound: new SoundModule("sound", "Random sound"),
 		};
 
 		for (const module in this.#modules) {
