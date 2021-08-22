@@ -13,8 +13,14 @@ export class ClicksModule extends Module {
         setTimeout(() => {
             
             alert(`Вы совершили одиночных кликов ${this.clicks}, двойных кликов ${this.doubleClicks} за ${setTimeout[1]} секунд`);
-        }, 10000)
-    }
+        }, 10000);
+        let timeIsOver = false;
+            if (setTimeout) {
+                timeIsOver = true;
+        }
+        console.log(timeIsOver);
+    };
+    
 
     oneTwoClicks() {
 
@@ -22,12 +28,18 @@ export class ClicksModule extends Module {
             document.addEventListener('click', () => {
             const result = ++click;
             console.log('one', result);
+            if (timeIsOver === true) {
+                break;
+            }
 });
 
         let doubleclick = 0;
             document.addEventListener('dblclick', () => {
                 const result1 = ++doubleclick;
                 console.log('double', result1);
+                if (timeIsOver === true) {
+                    break;
+                }
         }); 
     }
 

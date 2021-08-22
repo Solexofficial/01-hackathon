@@ -1,6 +1,6 @@
 import { Menu } from "./core/menu";
 import { BackgroundModule } from "./modules/background.module";
-import { ClicksModule } from "./modules/clicks.module";
+import { ClicksModule } from "./modules/clicks-module";
 import { ShapeModule } from "./modules/shape.module";
 import { TimerModule } from "./modules/timer.module";
 import { AutoWriteText } from "./modules/auto-write-text.module";
