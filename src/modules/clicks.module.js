@@ -4,15 +4,25 @@ export class ClicksModule extends Module {
 	#ms;
 	constructor(type, text) {
 		super(type, text);
-		this.#ms = 1000;
-		this.countClick = 0;
+		this.#ms = 5000;
+		this.countClick = -1;
 		this.countDoubleClick = 0;
 		this.timeIsOver = false;
+		this.clickTrigger = this.getClicks.bind(this);
+		this.doubleClickTrigger = this.getDoubleClicks.bind(this);
 	}
 
 	trigger() {
+		this.countClick = -1;
+		this.countDoubleClick = 0;
+		this.getCountClicks();
+	}
+
+	getCountClicks() {
 		this.timeIsOver = false;
-		this.oneTwoClicks();
+		document.addEventListener("click", this.clickTrigger);
+		document.addEventListener("dblclick", this.doubleClickTrigger);
+
 		setTimeout(() => {
 			alert(
 				`Вы совершили одиночных кликов ${this.countClick}, двойных кликов ${this.countDoubleClick} за ${
@@ -23,21 +33,15 @@ export class ClicksModule extends Module {
 		}, this.#ms);
 	}
 
-	oneTwoClicks() {
-		document.addEventListener("click", function clk() {
-			this.countClick++;
-			console.log(this.countClick);
-			if (this.timeIsOver === true) {
-				document.removeEventListener("click", clk);
-			}
-		});
+	getClicks() {
+		if (this.timeIsOver) return;
+		this.countClick++;
+		console.log(this.countClick);
+	}
 
-		document.addEventListener("dblclick", function dblclk() {
-			this.countDoubleClick++;
-			console.log(this.countDoubleClick);
-			if (this.timeIsOver === true) {
-				document.removeEventListener("dblclick", dblclk);
-			}
-		});
+	getDoubleClicks() {
+		if (this.timeIsOver) return;
+		this.countDoubleClick++;
+		console.log(this.countDoubleClick);
 	}
 }
