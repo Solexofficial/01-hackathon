@@ -5,7 +5,6 @@ export class ClicksModule extends Module {
         this.#ms = 10000;
         this.click = 0;
         this.doubleClick = 0;
-
     }
 
     trigger() {
@@ -18,9 +17,8 @@ export class ClicksModule extends Module {
             if (setTimeout) {
                 timeIsOver = true;
         }
-        console.log(timeIsOver);
     };
-
+    }
 
     oneTwoClicks() {
 
