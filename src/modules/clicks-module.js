@@ -14,16 +14,14 @@ export class ClicksModule extends Module {
 
     oneTwoClicks() {
 
-        let a = document;
-
         let click = 0;
-            a.document.addEventListener('click', () => {
+            document.addEventListener('click', () => {
             const result = ++click;
             console.log('one', result);
 });
 
         let doubleclick = 0;
-            a.document.addEventListener('dblclick', () => {
+            document.addEventListener('dblclick', () => {
                 const result1 = ++doubleclick;
                 console.log('double', result1);
         }); 
